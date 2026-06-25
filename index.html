@@ -243,21 +243,18 @@
       right: 0;
       bottom: 40px;
       left: 0;
-      width: min(1660px, calc(100vw - 30px));
+      width: min(1240px, calc(100vw - 30px));
       margin: 0 auto;
       z-index: 2;
-      overflow: hidden;
     }
 
     .demo-slider-track {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
-      will-change: transform;
-      transition: transform .65s ease;
     }
 
     .demo-slider-item {
-      flex: 0 0 calc((100% - 72px) / 4);
       min-width: 0;
     }
 
@@ -540,11 +537,8 @@
       }
 
       .demo-slider-track {
+        grid-template-columns: 1fr;
         gap: 16px;
-      }
-
-      .demo-slider-item {
-        flex-basis: 100%;
       }
 
       .demo-card img {
@@ -634,7 +628,7 @@
       </div>
 
       <div class="showcase container-fluid px-0" id="demos" aria-label="Template demo previews">
-        <div class="demo-slider-track" data-demo-slider>
+        <div class="demo-slider-track">
           <div class="demo-slider-item">
             <a class="demo-card d-block h-100" href="index-1.html">
               <img src="assets/images/pages/landing/demo-01.jpg" alt="Modern architecture landing page preview">
@@ -657,38 +651,6 @@
               <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
                   PROJECTS CONTACT</span></span>
               <span class="mini-label"><strong>Estate</strong><span>Home 06</span></span>
-            </a>
-          </div>
-          <div class="demo-slider-item">
-            <a class="demo-card d-block h-100" href="home-04.html">
-              <img src="assets/images/pages/landing/demo-04.jpg" alt="Restaurant interior architecture preview">
-              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
-                  PROJECTS CONTACT</span></span>
-              <span class="mini-label"><strong>Build</strong><span>Home 04</span></span>
-            </a>
-          </div>
-          <div class="demo-slider-item">
-            <a class="demo-card d-block h-100" href="home-03.html">
-              <img src="assets/images/pages/home-03/home-03-hero-premium.jpg" alt="Minimal architecture project preview">
-              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
-                  PROJECTS CONTACT</span></span>
-              <span class="mini-label"><strong>Minimal</strong><span>Home 03</span></span>
-            </a>
-          </div>
-          <div class="demo-slider-item">
-            <a class="demo-card d-block h-100" href="home-05.html">
-              <img src="assets/images/pages/home-05/home-05-css-hero.jpg" alt="Furniture and decor studio preview">
-              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
-                  PROJECTS CONTACT</span></span>
-              <span class="mini-label"><strong>Decor</strong><span>Home 05</span></span>
-            </a>
-          </div>
-          <div class="demo-slider-item">
-            <a class="demo-card d-block h-100" href="home-07.html">
-              <img src="assets/images/pages/home-07/home-07-css-hero.jpg" alt="Dark creative architecture preview">
-              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
-                  PROJECTS CONTACT</span></span>
-              <span class="mini-label"><strong>Dark</strong><span>Home 07</span></span>
             </a>
           </div>
         </div>
@@ -759,36 +721,6 @@
     window.addEventListener("hashchange", () => setTimeout(toggleHeaderBg, 80));
     window.addEventListener("scroll", toggleHeaderBg, { passive: true });
 
-    document.querySelectorAll("[data-demo-slider]").forEach((track) => {
-      const items = Array.from(track.children);
-      if (items.length < 2) return;
-
-      let active = 0;
-      let paused = false;
-
-      const visibleCount = () => window.matchMedia("(min-width: 992px)").matches ? 4 : 1;
-      const updateSlider = () => {
-        const maxIndex = Math.max(0, items.length - visibleCount());
-        active = Math.min(active, maxIndex);
-        const itemWidth = items[0].getBoundingClientRect().width;
-        const gap = parseFloat(getComputedStyle(track).gap) || 0;
-        track.style.transform = `translateX(-${active * (itemWidth + gap)}px)`;
-      };
-      const nextSlide = () => {
-        if (paused) return;
-        const maxIndex = Math.max(0, items.length - visibleCount());
-        active = active >= maxIndex ? 0 : active + 1;
-        updateSlider();
-      };
-
-      track.addEventListener("mouseenter", () => { paused = true; });
-      track.addEventListener("mouseleave", () => { paused = false; });
-      track.addEventListener("focusin", () => { paused = true; });
-      track.addEventListener("focusout", () => { paused = false; });
-      window.addEventListener("resize", updateSlider, { passive: true });
-      updateSlider();
-      window.setInterval(nextSlide, 2600);
-    });
   </script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
