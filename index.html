@@ -76,15 +76,16 @@
 
     .site-header {
       position: fixed;
-      top: 16px;
-      left: clamp(16px, 4vw, 76px);
-      right: clamp(16px, 4vw, 76px);
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 999;
       min-height: 76px;
       padding: 0;
-      border: 1px solid rgba(255, 255, 255, .14);
+      border: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
       border-radius: 0;
-      background: rgba(3, 4, 8, .48);
+      background: rgba(3, 4, 8, .82);
       backdrop-filter: blur(18px);
       transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
@@ -592,12 +593,6 @@
     }
 
     @media (max-width: 1199.98px) {
-      .site-header {
-        top: 14px;
-        left: 16px;
-        right: 16px;
-      }
-
       .site-header .navbar {
         min-height: 68px;
       }
