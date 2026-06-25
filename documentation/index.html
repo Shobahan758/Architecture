@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Meta Section Start -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexora Architecture HTML5 Template Documentation">
+  <meta name="author" content="Nexora Studio">
+  <!-- Meta Section End -->
+
+  <!-- Page Title Section Start -->
+  <title>Nexora Documentation | Architecture HTML5 Template</title>
+  <!-- Page Title Section End -->
+
+  <!-- Vendor CSS Section Start -->
+  <link href="../assets/vendor/fonts/google-fonts.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/css/bootstrap-icons.css" rel="stylesheet">
+  <!-- Vendor CSS Section End -->
+
+  <!-- Documentation CSS Section Start -->
+  <style>
+    :root {
+      --doc-accent: #b78a54;
+      --doc-dark: #171512;
+      --doc-text: #312c26;
+      --doc-muted: #6f6a63;
+      --doc-soft: #f6f1ea;
+      --doc-line: rgba(23, 21, 18, .12);
+      --doc-card: #ffffff;
+      --doc-code: #111827;
+      --doc-font: "Inter", Arial, sans-serif;
+      --doc-serif: "Playfair Display", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #fbfaf8;
+      color: var(--doc-text);
+      font-family: var(--doc-font);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--doc-accent);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    a:hover {
+      color: #946936;
+    }
+
+    .doc-shell {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .doc-sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 34px 28px;
+      overflow-y: auto;
+      background: var(--doc-dark);
+      color: #fff;
+    }
+
+    .doc-brand {
+      display: block;
+      margin-bottom: 10px;
+      color: #fff;
+      font-family: var(--doc-serif);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .doc-brand span {
+      color: var(--doc-accent);
+    }
+
+    .doc-version {
+      display: inline-flex;
+      margin-bottom: 30px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      color: rgba(255, 255, 255, .72);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .doc-nav {
+      display: grid;
+      gap: 7px;
+    }
+
+    .doc-nav a {
+      display: block;
+      padding: 10px 12px;
+      color: rgba(255, 255, 255, .76);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .doc-nav a:hover {
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+    }
+
+    .doc-main {
+      min-width: 0;
+    }
+
+    .doc-hero {
+      padding: 86px 5vw 64px;
+      background:
+        linear-gradient(90deg, rgba(23, 21, 18, .92), rgba(23, 21, 18, .68)),
+        url("../assets/images/pages/index/index-01.jpg") center / cover;
+      color: #fff;
+    }
+
+    .doc-hero small,
+    .doc-eyebrow {
+      display: inline-block;
+      margin-bottom: 13px;
+      color: var(--doc-accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .doc-hero h1 {
+      max-width: 850px;
+      margin: 0;
+      font-family: var(--doc-serif);
+      font-size: 64px;
+      line-height: .98;
+    }
+
+    .doc-hero p {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: 18px;
+    }
+
+    .doc-content {
+      padding: 52px 5vw 90px;
+    }
+
+    .doc-section {
+      margin-bottom: 48px;
+      padding: 34px;
+      border: 1px solid var(--doc-line);
+      background: var(--doc-card);
+    }
+
+    .doc-section h2 {
+      margin: 0 0 18px;
+      color: var(--doc-dark);
+      font-family: var(--doc-serif);
+      font-size: 36px;
+      line-height: 1.08;
+    }
+
+    .doc-section h3 {
+      margin: 24px 0 10px;
+      color: var(--doc-dark);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .doc-section p {
+      margin: 0 0 16px;
+      color: var(--doc-muted);
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .doc-card {
+      padding: 22px;
+      border: 1px solid var(--doc-line);
+      background: var(--doc-soft);
+    }
+
+    .doc-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--doc-dark);
+      font-size: 18px;
+    }
+
+    .doc-card p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .doc-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--doc-muted);
+    }
+
+    .doc-list li {
+      margin-bottom: 8px;
+    }
+
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      font-size: 15px;
+    }
+
+    .doc-table th,
+    .doc-table td {
+      padding: 14px 16px;
+      border: 1px solid var(--doc-line);
+      vertical-align: top;
+    }
+
+    .doc-table th {
+      background: var(--doc-soft);
+      color: var(--doc-dark);
+      font-weight: 900;
+    }
+
+    code,
+    pre {
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    code {
+      padding: 2px 6px;
+      background: #f1ece4;
+      color: var(--doc-code);
+      font-size: 14px;
+    }
+
+    pre {
+      margin: 16px 0 0;
+      padding: 18px;
+      overflow-x: auto;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+      color: inherit;
+    }
+
+    .doc-alert {
+      padding: 18px 20px;
+      border-left: 4px solid var(--doc-accent);
+      background: #fff8ed;
+      color: #624927;
+      font-weight: 700;
+    }
+
+    .doc-footer {
+      padding-top: 18px;
+      border-top: 1px solid var(--doc-line);
+      color: var(--doc-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 991.98px) {
+      .doc-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .doc-sidebar {
+        position: static;
+        height: auto;
+      }
+
+      .doc-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .doc-hero h1 {
+        font-size: 46px;
+      }
+
+      .doc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+
+      .doc-sidebar,
+      .doc-content,
+      .doc-hero {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .doc-section {
+        padding: 22px;
+      }
+
+      .doc-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .doc-hero h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+  <!-- Documentation CSS Section End -->
+</head>
+
+<body>
+  <div class="doc-shell">
+    <!-- Sidebar Navigation Section Start -->
+    <aside class="doc-sidebar">
+      <a class="doc-brand" href="../index-1.html"><span>Ne</span>xora</a>
+      <div class="doc-version">Version 1.0.0</div>
+      <nav class="doc-nav" aria-label="Documentation navigation">
+        <a href="#intro">Introduction</a>
+        <a href="#features">Features</a>
+        <a href="#files">Folder Structure</a>
+        <a href="#pages">HTML Pages</a>
+        <a href="#installation">Installation Guide</a>
+        <a href="#fonts">Used Fonts</a>
+        <a href="#plugins">Used Plugins</a>
+        <a href="#customization">Customization</a>
+        <a href="#css">CSS Structure</a>
+        <a href="#javascript">JavaScript</a>
+        <a href="#forms">Forms</a>
+        <a href="#images">Images</a>
+        <a href="#credits">Credits</a>
+        <a href="#contact-info">Contact Information</a>
+      </nav>
+    </aside>
+    <!-- Sidebar Navigation Section End -->
+
+    <main class="doc-main">
+      <!-- Documentation Hero Section Start -->
+      <header class="doc-hero" id="intro">
+        <small>Template Documentation</small>
+        <h1>Nexora Architecture & Interior Design HTML5 Template</h1>
+        <p>Thank you for purchasing Nexora. This documentation explains how to install, edit, customize, and prepare the
+          template for a live website or client handover.</p>
+      </header>
+      <!-- Documentation Hero Section End -->
+
+      <div class="doc-content">
+        <!-- Quick Start Section Start -->
+        <section class="doc-section">
+          <span class="doc-eyebrow">Quick Start</span>
+          <h2>Getting Started</h2>
+          <p>Nexora is a static HTML template built with Bootstrap 5, local fonts, local vendor files, custom CSS, and
+            lightweight JavaScript. No build tool is required for normal editing.</p>
+          <div class="doc-alert">Important: this is an HTML template, not a WordPress theme. It cannot be installed from
+            the WordPress dashboard.</div>
+        </section>
+        <!-- Quick Start Section End -->
+
+        <!-- Features Section Start -->
+        <section class="doc-section" id="features">
+          <span class="doc-eyebrow">Overview</span>
+          <h2>Main Features</h2>
+          <div class="doc-grid">
+            <div class="doc-card">
+              <strong>7 Homepage Demos</strong>
+              <p>Modern architecture, luxury interior, construction, furniture, real estate interior, and dark creative
+                demos.</p>
+            </div>
+            <div class="doc-card">
+              <strong>Inner Pages</strong>
+              <p>About, services, projects, team, pricing, FAQ, shop, cart, checkout, blog, contact, and 404 pages.</p>
+            </div>
+            <div class="doc-card">
+              <strong>Theme Ready</strong>
+              <p>Dark mode toggle, responsive layout, section comments, local assets, and organized page-specific
+                folders.</p>
+            </div>
+          </div>
+        </section>
+        <!-- Features Section End -->
+
+        <!-- Folder Structure Section Start -->
+        <section class="doc-section" id="files">
+          <span class="doc-eyebrow">Package</span>
+          <h2>Folder Structure</h2>
+          <pre><code>nexora/
+├── index.html
+├── home-02.html ... home-07.html
+├── about.html, services.html, projects.html, team.html
+├── shop.html, cart.html, checkout.html
+├── blog.html, contact.html, faq.html, 404.html
+├── assets/
+│   ├── css/
+│   │   ├── main.css
+│   │   └── responsive.css
+│   ├── js/
+│   │   └── main.js
+│   ├── images/
+│   └── vendor/
+│       ├── bootstrap/
+│       ├── bootstrap-icons/
+│       └── fonts/
+├── documentation/
+│   ├── index.html
+│   └── README.md
+├── credits.md
+└── changelog.md</code></pre>
+        </section>
+        <!-- Folder Structure Section End -->
+
+        <!-- HTML Pages Section Start -->
+        <section class="doc-section" id="pages">
+          <span class="doc-eyebrow">Pages</span>
+          <h2>Included HTML Pages</h2>
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Homepages</td>
+                <td><code>index.html</code>, <code>home-02.html</code>, <code>home-03.html</code>,
+                  <code>home-04.html</code>, <code>home-05.html</code>, <code>home-06.html</code>,
+                  <code>home-07.html</code></td>
+              </tr>
+              <tr>
+                <td>About</td>
+                <td><code>about.html</code>, <code>about-1.html</code>, <code>about-2.html</code></td>
+              </tr>
+              <tr>
+                <td>Services</td>
+                <td><code>services.html</code>, <code>services-1.html</code>, <code>service-details.html</code></td>
+              </tr>
+              <tr>
+                <td>Projects</td>
+                <td><code>projects.html</code>, <code>projects-1.html</code>, <code>project-details.html</code></td>
+              </tr>
+              <tr>
+                <td>Team and Utility</td>
+                <td><code>team.html</code>, <code>team-details.html</code>, <code>pricing.html</code>,
+                  <code>faq.html</code>, <code>404.html</code></td>
+              </tr>
+              <tr>
+                <td>Shop</td>
+                <td><code>shop.html</code>, <code>shop-details.html</code>, <code>product-details.html</code>,
+                  <code>cart.html</code>, <code>checkout.html</code></td>
+              </tr>
+              <tr>
+                <td>Blog and Contact</td>
+                <td><code>blog.html</code>, <code>blog-1.html</code>, <code>blog-details.html</code>,
+                  <code>contact.html</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- HTML Pages Section End -->
+
+        <!-- Installation Guide Section Start -->
+        <section class="doc-section" id="installation">
+          <span class="doc-eyebrow">Setup</span>
+          <h2>Installation Guide</h2>
+          <ol class="doc-list">
+            <li>Unzip the downloaded package.</li>
+            <li>Open <code>index.html</code> in a browser to preview the default demo.</li>
+            <li>Choose the homepage and inner pages you want to use.</li>
+            <li>Upload the selected HTML files and the full <code>assets</code> folder to your hosting server.</li>
+            <li>Keep the folder paths unchanged unless you also update all related asset links.</li>
+          </ol>
+          <h3>Recommended Local Preview</h3>
+          <p>You can preview the template by opening HTML files directly. For the most accurate browser behavior, run
+            any simple local server from the project root.</p>
+          <pre><code>python3 -m http.server 8000</code></pre>
+        </section>
+        <!-- Installation Guide Section End -->
+
+        <!-- Used Fonts Section Start -->
+        <section class="doc-section" id="fonts">
+          <span class="doc-eyebrow">Typography</span>
+          <h2>Used Fonts</h2>
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Font Name</th>
+                <th>Use</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Inter</td>
+                <td>Body text, navigation, buttons, forms, and UI labels</td>
+                <td><code>assets/vendor/fonts/google-fonts.css</code></td>
+              </tr>
+              <tr>
+                <td>Playfair Display</td>
+                <td>Hero headings, section headings, large editorial titles, and brand typography</td>
+                <td><code>assets/vendor/fonts/google-fonts.css</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Font files are included locally inside <code>assets/vendor/fonts/google/</code> for offline preview.</p>
+        </section>
+        <!-- Used Fonts Section End -->
+
+        <!-- Used Plugins Section Start -->
+        <section class="doc-section" id="plugins">
+          <span class="doc-eyebrow">Libraries</span>
+          <h2>Used Plugins</h2>
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Plugin / Library</th>
+                <th>Purpose</th>
+                <th>File Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bootstrap 5</td>
+                <td>Responsive grid, layout helpers, navbar collapse, dropdowns, accordions, and form styling</td>
+                <td><code>assets/vendor/bootstrap/</code></td>
+              </tr>
+              <tr>
+                <td>Bootstrap Icons</td>
+                <td>Icon set used in buttons, cards, feature lists, social links, and interface controls</td>
+                <td><code>assets/vendor/bootstrap-icons/</code></td>
+              </tr>
+              <tr>
+                <td>Custom JavaScript</td>
+                <td>Theme toggle, sticky header, sliders, project filtering, counters, reveal animation, and demo form behavior</td>
+                <td><code>assets/js/main.js</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>No premium plugin is required. All included libraries are free and loaded from local package files.</p>
+        </section>
+        <!-- Used Plugins Section End -->
+
+        <!-- Customization Section Start -->
+        <section class="doc-section" id="customization">
+          <span class="doc-eyebrow">Editing</span>
+          <h2>Customization Guide</h2>
+          <h3>Change Logo Text</h3>
+          <p>Search for the brand markup in each page header and footer:</p>
+          <pre><code>&lt;a class="navbar-brand" href=&quot;index-1.html&quot;&gt;&lt;span&gt;Ne&lt;/span&gt;xora&lt;/a&gt;</code></pre>
+
+          <h3>Change Colors</h3>
+          <p>Main colors are controlled in <code>assets/css/main.css</code> with CSS variables. Update these values to
+            match your brand.</p>
+          <pre><code>:root {
+  --accent: #b78a54;
+  --dark: #171512;
+  --soft: #f4efe8;
+}</code></pre>
+
+          <h3>Change Fonts</h3>
+          <p>Fonts are loaded locally from <code>assets/vendor/fonts/google-fonts.css</code>. You can replace the font
+            files and update the font-family rules in <code>assets/css/main.css</code>.</p>
+
+          <h3>Change Images</h3>
+          <p>Replace images inside <code>assets/images/pages/</code>. Keep the same file names for the fastest update,
+            or change the image paths inside the related HTML/CSS files.</p>
+        </section>
+        <!-- Customization Section End -->
+
+        <!-- CSS Structure Section Start -->
+        <section class="doc-section" id="css">
+          <span class="doc-eyebrow">Styles</span>
+          <h2>CSS Structure</h2>
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>assets/css/main.css</code></td>
+                <td>Main template styles, shared components, page sections, dark mode, and final page-specific polish.
+                </td>
+              </tr>
+              <tr>
+                <td><code>assets/css/responsive.css</code></td>
+                <td>Responsive rules for laptop, tablet, mobile, small phone, and final containment fixes.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>All custom CSS files include section comments so you can find page-specific blocks quickly.</p>
+        </section>
+        <!-- CSS Structure Section End -->
+
+        <!-- JavaScript Section Start -->
+        <section class="doc-section" id="javascript">
+          <span class="doc-eyebrow">Scripts</span>
+          <h2>JavaScript Structure</h2>
+          <p>The main script file is <code>assets/js/main.js</code>. It includes clearly commented sections for:</p>
+          <ul class="doc-list">
+            <li>Dark/light theme toggle</li>
+            <li>Sticky header and back-to-top button</li>
+            <li>Mobile menu behavior</li>
+            <li>Reveal animations</li>
+            <li>Counter animations</li>
+            <li>Project filtering</li>
+            <li>Hero background sliders</li>
+            <li>Testimonials, project carousel, team slider, and gallery movement</li>
+            <li>Demo form validation behavior</li>
+          </ul>
+        </section>
+        <!-- JavaScript Section End -->
+
+        <!-- Forms Section Start -->
+        <section class="doc-section" id="forms">
+          <span class="doc-eyebrow">Forms</span>
+          <h2>Contact, Newsletter, Cart, and Checkout Forms</h2>
+          <p>All forms are static demo forms. The included JavaScript prevents page reload and adds a validation class
+            for front-end preview only.</p>
+          <div class="doc-alert">Before using the template on a live website, connect forms to your own backend, email
+            service, CRM, or e-commerce platform.</div>
+        </section>
+        <!-- Forms Section End -->
+
+        <!-- Images Section Start -->
+        <section class="doc-section" id="images">
+          <span class="doc-eyebrow">Media</span>
+          <h2>Images and Assets</h2>
+          <p>Demo images are stored locally inside <code>assets/images/</code>. For production or client work, replace
+            the demo images with your own licensed photography.</p>
+          <ul class="doc-list">
+            <li>Page images are organized under <code>assets/images/pages/</code>.</li>
+            <li>Preview images are stored in the <code>assets</code> folder.</li>
+            <li>Vendor files are stored in <code>assets/vendor/</code>.</li>
+          </ul>
+        </section>
+        <!-- Images Section End -->
+
+        <!-- Credits Section Start -->
+        <section class="doc-section" id="credits">
+          <span class="doc-eyebrow">Credits</span>
+          <h2>Sources and Credits</h2>
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bootstrap 5</td>
+                <td><a href="https://getbootstrap.com/">https://getbootstrap.com/</a></td>
+              </tr>
+              <tr>
+                <td>Bootstrap Icons</td>
+                <td><a href="https://icons.getbootstrap.com/">https://icons.getbootstrap.com/</a></td>
+              </tr>
+              <tr>
+                <td>Google Fonts</td>
+                <td>Inter and Playfair Display from <a href="https://fonts.google.com/">https://fonts.google.com/</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Demo Images</td>
+                <td>Royalty-free placeholder images. See <code>credits.md</code> for notes and replace with your own
+                  project images before final client delivery.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- Credits Section End -->
+
+        <!-- Contact Information Section Start -->
+        <section class="doc-section" id="contact-info">
+          <span class="doc-eyebrow">Help</span>
+          <h2>Contact Information</h2>
+          <p>Support covers template file questions, included features, and guidance for basic customization. Support
+            does not include full custom development, backend integration, hosting setup, or third-party plugin
+            customization.</p>
+          <table class="doc-table">
+            <tbody>
+              <tr>
+                <th>Author</th>
+                <td>Nexora Studio</td>
+              </tr>
+              <tr>
+                <th>Support</th>
+                <td>Use the item support tab on ThemeForest for support requests.</td>
+              </tr>
+              <tr>
+                <th>Required Details</th>
+                <td>Template name, version number, page/file name, browser name, and a clear description of the issue.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="doc-footer">Nexora Architecture & Interior Design HTML5 Template - Documentation version 1.0.0
+          </div>
+        </section>
+        <!-- Contact Information Section End -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Vendor JS Section Start -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Vendor JS Section End -->
+</body>
+
+</html>

@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexora premium architecture and real estate HTML template landing preview.">
+  <meta name="author" content="Nexora">
+  <title>Nexora - Premium Architecture HTML Template</title>
+  <link href="assets/vendor/fonts/google-fonts.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/css/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030408;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, .72);
+      --line: rgba(255, 255, 255, .28);
+      --soft: rgba(255, 255, 255, .08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Inter, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .landing {
+      position: relative;
+      min-height: calc(100vh + 160px);
+      padding: 16px clamp(16px, 4vw, 76px) 0;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .landing::before {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      content: "";
+      background:
+        linear-gradient(180deg, rgba(2, 3, 8, .78) 0%, rgba(2, 3, 8, .42) 46%, rgba(2, 3, 8, .92) 100%),
+        linear-gradient(90deg, rgba(2, 3, 8, .95), rgba(2, 3, 8, .2) 48%, rgba(2, 3, 8, .88)),
+        url("assets/images/pages/landing/hero-architecture.jpg") center / cover no-repeat;
+      filter: saturate(.82) contrast(1.08);
+      transform: scale(1.02);
+    }
+
+    .landing::after {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      content: "";
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 92px),
+        radial-gradient(circle at 50% 35%, rgba(255, 255, 255, .1), transparent 36%);
+      opacity: .72;
+      pointer-events: none;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 16px;
+      left: clamp(16px, 4vw, 76px);
+      right: clamp(16px, 4vw, 76px);
+      z-index: 999;
+      min-height: 58px;
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, padding .25s ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(3, 4, 8, .82);
+      border-color: rgba(255, 255, 255, .16);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .34);
+      backdrop-filter: blur(18px);
+      padding: 6px 14px;
+    }
+
+    .site-header .navbar {
+      min-height: 58px;
+    }
+
+    .landing-toggler {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 999px;
+      color: #fff;
+      box-shadow: none !important;
+    }
+
+    .landing-toggler i {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .landing-nav {
+      gap: 24px;
+    }
+
+    @media (min-width: 992px) {
+      .site-header .navbar-collapse {
+        display: flex !important;
+      }
+    }
+
+    .landing-nav .nav-link {
+      color: rgba(255, 255, 255, .88);
+      font-weight: 700;
+    }
+
+    .landing-nav .nav-link:hover,
+    .landing-nav .nav-link:focus {
+      color: #fff;
+    }
+
+    .brand {
+      width: max-content;
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      gap: clamp(28px, 4vw, 58px);
+      font-weight: 700;
+      color: rgba(255, 255, 255, .88);
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .purchase-small {
+      gap: 14px;
+      min-height: 56px;
+      padding: 8px 9px 8px 24px;
+      border: 1px solid rgba(255, 255, 255, .78);
+      border-radius: 999px;
+      color: #fff !important;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .04);
+      backdrop-filter: blur(16px);
+    }
+
+    .round-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: #05060a;
+      background: #fff;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      padding: 70px 0 190px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      min-height: 58px;
+      padding: 0 40px;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .07));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+      backdrop-filter: blur(18px);
+      font-size: clamp(18px, 2vw, 25px);
+      font-weight: 600;
+    }
+
+    h1 {
+      max-width: 1290px;
+      margin: 36px auto 28px;
+      font-size: clamp(58px, 8vw, 113px);
+      line-height: .98;
+      letter-spacing: 0;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, .8);
+      font-size: clamp(17px, 1.4vw, 23px);
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    .purchase-main {
+      gap: 16px;
+      width: min(558px, 92vw);
+      min-height: 82px;
+      margin-top: 54px;
+      border: 2px solid #fff;
+      border-radius: 999px;
+      color: #fff !important;
+      background: rgba(0, 0, 0, .72);
+      box-shadow: 0 18px 70px rgba(0, 0, 0, .34);
+      font-size: clamp(22px, 2.2vw, 30px);
+      font-weight: 900;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .purchase-main:hover {
+      color: #fff !important;
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .showcase {
+      position: absolute;
+      right: 0;
+      bottom: 40px;
+      left: 0;
+      width: min(1660px, calc(100vw - 30px));
+      margin: 0 auto;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .demo-slider-track {
+      display: flex;
+      gap: 24px;
+      will-change: transform;
+      transition: transform .65s ease;
+    }
+
+    .demo-slider-item {
+      flex: 0 0 calc((100% - 72px) / 4);
+      min-width: 0;
+    }
+
+    .demo-card {
+      position: relative;
+      min-height: 250px;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, .3);
+      border-radius: 18px 18px 0 0;
+      background: #111;
+      box-shadow: 0 24px 72px rgba(0, 0, 0, .48);
+    }
+
+    .demo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      display: block;
+      object-fit: cover;
+      filter: contrast(1.05) saturate(.94);
+      transition: transform .35s ease;
+    }
+
+    .demo-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .demo-card::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(180deg, rgba(0, 0, 0, .18), rgba(0, 0, 0, .08) 45%, rgba(0, 0, 0, .78));
+    }
+
+    .mini-topbar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .mini-brand {
+      font-size: 20px;
+    }
+
+    .mini-links {
+      display: flex;
+      gap: 18px;
+      opacity: .9;
+    }
+
+    .mini-label {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      left: 18px;
+      z-index: 2;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .mini-label strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 54px);
+      line-height: .9;
+      letter-spacing: 0;
+    }
+
+    .mini-label span {
+      display: inline-flex;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 255, 255, .5);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .38);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .content-band {
+      padding: 86px clamp(16px, 4vw, 76px) 92px;
+      background: #f3f3f3;
+      color: #111;
+    }
+
+    .section-pill {
+      width: max-content;
+      min-height: 38px;
+      margin: 0 auto 34px;
+      padding: 0 30px;
+      border: 1px solid #d4dce5;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #111;
+      background: #eef3f8;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .section-pill::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #050505;
+      content: "";
+    }
+
+    .content-band h2 {
+      max-width: 1120px;
+      margin: 0 auto 60px;
+      text-align: center;
+      font-size: clamp(42px, 6.7vw, 96px);
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .content-band h2 span {
+      color: rgba(0, 0, 0, .34);
+    }
+
+    .homepage-preview-grid {
+      max-width: 1640px;
+      margin: 0 auto;
+    }
+
+    .homepage-preview-grid > [class*="col-"] {
+      margin-bottom: 24px;
+    }
+
+    .homepage-preview-card {
+      position: relative;
+      padding: 22px;
+      border: 1px solid #d8d8d8;
+      border-radius: 34px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .homepage-preview-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+    }
+
+    .homepage-preview-title {
+      position: absolute;
+      right: 36px;
+      bottom: 36px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 6px 8px 6px 20px;
+      border-radius: 999px;
+      color: #111;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .16);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .homepage-preview-title i {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
+      background: #111;
+      font-size: 16px;
+    }
+
+    @media (max-width: 720px) {
+      .landing {
+        padding: 14px 16px 0;
+      }
+
+      .site-header {
+        top: 14px;
+        left: 16px;
+        right: 16px;
+        gap: 12px;
+        border-radius: 26px;
+      }
+
+      .brand {
+        font-size: 36px;
+      }
+
+      .landing-nav {
+        position: absolute;
+        top: 58px;
+        right: 0;
+        left: 0;
+        z-index: 30;
+        margin-top: 14px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, .18);
+        border-radius: 22px;
+        background: rgba(0, 0, 0, .76);
+        backdrop-filter: blur(18px);
+      }
+
+      .purchase-small {
+        min-height: 44px;
+        padding: 5px;
+      }
+
+      .purchase-small span:first-child {
+        display: none;
+      }
+
+      .round-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+      }
+
+      .hero {
+        min-height: calc(100vh - 60px);
+        padding: 62px 0 250px;
+      }
+
+      .landing {
+        min-height: calc(100vh + 120px);
+      }
+
+      .hero-badge {
+        min-height: 48px;
+        max-width: 100%;
+        padding: 0 16px;
+        font-size: 16px;
+      }
+
+      h1 {
+        margin-top: 28px;
+        width: 100%;
+        font-size: clamp(36px, 10.5vw, 42px);
+        line-height: 1.06;
+        overflow-wrap: break-word;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      .hero p {
+        width: 100%;
+        font-size: 16px;
+      }
+
+      .purchase-main {
+        min-height: 66px;
+        margin-top: 38px;
+      }
+
+      .showcase {
+        bottom: 40px;
+        width: calc(100vw - 32px);
+        transform: none;
+      }
+
+      .demo-card {
+        min-height: 210px;
+      }
+
+      .demo-slider-track {
+        gap: 16px;
+      }
+
+      .demo-slider-item {
+        flex-basis: 100%;
+      }
+
+      .demo-card img {
+        min-height: 210px;
+      }
+
+      .mini-links {
+        display: none;
+      }
+
+      .content-band {
+        padding-top: 80px;
+      }
+
+      .section-pill {
+        margin-bottom: 24px;
+      }
+
+      .content-band h2 {
+        margin-bottom: 32px;
+        font-size: clamp(36px, 11vw, 48px);
+      }
+
+      .homepage-preview-card {
+        padding: 12px;
+        border-radius: 22px;
+      }
+
+      .homepage-preview-card img {
+        border-radius: 16px;
+      }
+
+      .homepage-preview-title {
+        right: 22px;
+        bottom: 22px;
+        min-height: 42px;
+        padding-left: 16px;
+        font-size: 13px;
+      }
+
+      .homepage-preview-title i {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark p-0">
+      <div class="container-fluid px-0">
+        <a class="brand navbar-brand mb-0" href="index-1.html" aria-label="Nexora home">Nexora</a>
+        <button class="navbar-toggler landing-toggler d-lg-none align-items-center justify-content-center" type="button"
+          data-bs-toggle="collapse" data-bs-target="#landingHeaderNav" aria-controls="landingHeaderNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse landing-nav" id="landingHeaderNav">
+          <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-5">
+            <li class="nav-item"><a class="nav-link" href="#demos">Demo Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">Inner Page</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Login</a></li>
+          </ul>
+          <a class="purchase-small btn d-inline-flex align-items-center justify-content-center mt-3 mt-lg-0"
+            href="contact.html">
+            <span>PURCHASE NOW</span>
+            <span class="round-icon"><i class="bi bi-arrow-up-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="landing" id="top">
+      <div class="hero d-flex flex-column align-items-center justify-content-center">
+        <span class="hero-badge d-inline-flex align-items-center justify-content-center">Architecture Website Template</span>
+        <h1><span>Premium</span> <span>Architecture</span><br><span>HTML Template.</span></h1>
+        <p>Nexora is crafted for architecture studios, real estate brands, interior designers, and construction teams
+          who need a refined, image-led website.</p>
+        <a class="purchase-main btn d-inline-flex align-items-center justify-content-center" href="contact.html">
+          <span>PURCHASE NOW</span>
+          <i class="bi bi-cart3"></i>
+        </a>
+      </div>
+
+      <div class="showcase container-fluid px-0" id="demos" aria-label="Template demo previews">
+        <div class="demo-slider-track" data-demo-slider>
+          <div class="demo-slider-item">
+            <a class="demo-card d-block h-100" href="index-1.html">
+              <img src="assets/images/pages/landing/demo-01.jpg" alt="Modern architecture landing page preview">
+              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
+                  PROJECTS CONTACT</span></span>
+              <span class="mini-label"><strong>Studio</strong><span>Home 01</span></span>
+            </a>
+          </div>
+          <div class="demo-slider-item">
+            <a class="demo-card d-block h-100" href="home-02.html">
+              <img src="assets/images/pages/landing/demo-02.jpg" alt="Luxury interior design preview">
+              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
+                  PROJECTS CONTACT</span></span>
+              <span class="mini-label"><strong>Interior</strong><span>Home 02</span></span>
+            </a>
+          </div>
+          <div class="demo-slider-item">
+            <a class="demo-card d-block h-100" href="home-06.html">
+              <img src="assets/images/pages/landing/demo-03.jpg" alt="Real estate architecture preview">
+              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
+                  PROJECTS CONTACT</span></span>
+              <span class="mini-label"><strong>Estate</strong><span>Home 06</span></span>
+            </a>
+          </div>
+          <div class="demo-slider-item">
+            <a class="demo-card d-block h-100" href="home-04.html">
+              <img src="assets/images/pages/landing/demo-04.jpg" alt="Restaurant interior architecture preview">
+              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
+                  PROJECTS CONTACT</span></span>
+              <span class="mini-label"><strong>Build</strong><span>Home 04</span></span>
+            </a>
+          </div>
+          <div class="demo-slider-item">
+            <a class="demo-card d-block h-100" href="home-03.html">
+              <img src="assets/images/pages/home-03/home-03-hero-premium.jpg" alt="Minimal architecture project preview">
+              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
+                  PROJECTS CONTACT</span></span>
+              <span class="mini-label"><strong>Minimal</strong><span>Home 03</span></span>
+            </a>
+          </div>
+          <div class="demo-slider-item">
+            <a class="demo-card d-block h-100" href="home-05.html">
+              <img src="assets/images/pages/home-05/home-05-css-hero.jpg" alt="Furniture and decor studio preview">
+              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
+                  PROJECTS CONTACT</span></span>
+              <span class="mini-label"><strong>Decor</strong><span>Home 05</span></span>
+            </a>
+          </div>
+          <div class="demo-slider-item">
+            <a class="demo-card d-block h-100" href="home-07.html">
+              <img src="assets/images/pages/home-07/home-07-css-hero.jpg" alt="Dark creative architecture preview">
+              <span class="mini-topbar d-flex align-items-center justify-content-between"><span class="mini-brand">Nexora</span><span class="mini-links">HOME ABOUT SERVICES
+                  PROJECTS CONTACT</span></span>
+              <span class="mini-label"><strong>Dark</strong><span>Home 07</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-band" id="footer">
+      <div class="container-fluid px-0">
+        <div class="text-center"><span class="section-pill">Homepages</span></div>
+        <h2>Unique homepage<br>collections. <span>(Light &amp; Dark)</span></h2>
+        <div class="homepage-preview-grid row g-3 g-lg-4">
+          <div class="col-12 col-lg-6">
+            <a class="homepage-preview-card d-block" href="index-1.html" aria-label="View Home 01 demo">
+              <img src="assets/images/pages/landing/previews/home-01.png" alt="Home 01 full page preview">
+              <span class="homepage-preview-title">Home 01 <i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </div>
+          <div class="col-12 col-lg-6">
+            <a class="homepage-preview-card d-block" href="home-02.html" aria-label="View Home 02 demo">
+              <img src="assets/images/pages/landing/previews/home-02.png" alt="Home 02 full page preview">
+              <span class="homepage-preview-title">Home 02 <i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </div>
+          <div class="col-12 col-lg-6">
+            <a class="homepage-preview-card d-block" href="home-03.html" aria-label="View Home 03 demo">
+              <img src="assets/images/pages/landing/previews/home-03.png" alt="Home 03 full page preview">
+              <span class="homepage-preview-title">Home 03 <i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </div>
+          <div class="col-12 col-lg-6">
+            <a class="homepage-preview-card d-block" href="home-04.html" aria-label="View Home 04 demo">
+              <img src="assets/images/pages/landing/previews/home-04.png" alt="Home 04 full page preview">
+              <span class="homepage-preview-title">Home 04 <i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </div>
+          <div class="col-12 col-lg-6">
+            <a class="homepage-preview-card d-block" href="home-05.html" aria-label="View Home 05 demo">
+              <img src="assets/images/pages/landing/previews/home-05.png" alt="Home 05 full page preview">
+              <span class="homepage-preview-title">Home 05 <i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </div>
+          <div class="col-12 col-lg-6">
+            <a class="homepage-preview-card d-block" href="home-06.html" aria-label="View Home 06 demo">
+              <img src="assets/images/pages/landing/previews/home-06.png" alt="Home 06 full page preview">
+              <span class="homepage-preview-title">Home 06 <i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </div>
+          <div class="col-12 col-lg-6">
+            <a class="homepage-preview-card d-block" href="home-07.html" aria-label="View Home 07 demo">
+              <img src="assets/images/pages/landing/previews/home-07.png" alt="Home 07 full page preview">
+              <span class="homepage-preview-title">Home 07 <i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const siteHeader = document.querySelector(".site-header");
+    const toggleHeaderBg = () => {
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+    };
+    toggleHeaderBg();
+    window.addEventListener("load", () => {
+      toggleHeaderBg();
+      setTimeout(toggleHeaderBg, 120);
+    });
+    window.addEventListener("hashchange", () => setTimeout(toggleHeaderBg, 80));
+    window.addEventListener("scroll", toggleHeaderBg, { passive: true });
+
+    document.querySelectorAll("[data-demo-slider]").forEach((track) => {
+      const items = Array.from(track.children);
+      if (items.length < 2) return;
+
+      let active = 0;
+      let paused = false;
+
+      const visibleCount = () => window.matchMedia("(min-width: 992px)").matches ? 4 : 1;
+      const updateSlider = () => {
+        const maxIndex = Math.max(0, items.length - visibleCount());
+        active = Math.min(active, maxIndex);
+        const itemWidth = items[0].getBoundingClientRect().width;
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        track.style.transform = `translateX(-${active * (itemWidth + gap)}px)`;
+      };
+      const nextSlide = () => {
+        if (paused) return;
+        const maxIndex = Math.max(0, items.length - visibleCount());
+        active = active >= maxIndex ? 0 : active + 1;
+        updateSlider();
+      };
+
+      track.addEventListener("mouseenter", () => { paused = true; });
+      track.addEventListener("mouseleave", () => { paused = false; });
+      track.addEventListener("focusin", () => { paused = true; });
+      track.addEventListener("focusout", () => { paused = false; });
+      window.addEventListener("resize", updateSlider, { passive: true });
+      updateSlider();
+      window.setInterval(nextSlide, 2600);
+    });
+  </script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
