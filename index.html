@@ -592,6 +592,123 @@
       font-weight: 800;
     }
 
+    .landing-footer {
+      padding: 96px clamp(16px, 4vw, 76px) 28px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      background:
+        linear-gradient(180deg, #0b0c10 0%, #05060a 100%);
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .landing-footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(150px, .55fr)) minmax(0, 1fr);
+      gap: 48px;
+      max-width: 1640px;
+      margin: 0 auto;
+    }
+
+    .landing-footer-brand {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #fff;
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    .landing-footer-brand span {
+      color: #d5a15f;
+    }
+
+    .landing-footer p {
+      max-width: 430px;
+      margin: 0 0 24px;
+      line-height: 1.8;
+    }
+
+    .landing-footer h3 {
+      margin: 0 0 18px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .landing-footer a:not(.landing-footer-brand) {
+      display: block;
+      margin-bottom: 11px;
+      color: rgba(255, 255, 255, .72);
+      font-weight: 700;
+    }
+
+    .landing-footer a:hover,
+    .landing-footer a:focus {
+      color: #d5a15f;
+    }
+
+    .landing-footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .landing-footer-socials a {
+      display: grid !important;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .16);
+      color: #fff !important;
+    }
+
+    .landing-footer-socials a:hover {
+      border-color: #d5a15f;
+      background: #d5a15f;
+      color: #171512 !important;
+    }
+
+    .landing-footer-contact {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .landing-footer-contact li {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .landing-footer-contact i {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 50%;
+      color: #d5a15f;
+    }
+
+    .landing-footer-contact a,
+    .landing-footer-contact span {
+      display: inline !important;
+      margin: 0 !important;
+      line-height: 1.55;
+    }
+
+    .landing-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1640px;
+      margin: 64px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      font-size: 14px;
+    }
+
     @media (max-width: 1199.98px) {
       .site-header .navbar {
         min-height: 68px;
@@ -630,6 +747,10 @@
         width: 100%;
         justify-content: center;
         margin-top: 12px;
+      }
+
+      .landing-footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -765,6 +886,20 @@
         min-height: 42px;
         padding-left: 16px;
         font-size: 13px;
+      }
+
+      .landing-footer {
+        padding-top: 72px;
+      }
+
+      .landing-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .landing-footer-bottom {
+        flex-direction: column;
+        margin-top: 42px;
       }
 
     }
@@ -1047,6 +1182,48 @@
       </div>
     </section>
   </main>
+
+  <footer class="landing-footer">
+    <div class="landing-footer-grid">
+      <div>
+        <a class="landing-footer-brand" href="index-1.html"><span>Ne</span>xora</a>
+        <p>Architecture, interiors, construction, furniture studios, and creative agencies shaped with clarity and care.</p>
+        <div class="landing-footer-socials">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Behance"><i class="bi bi-behance"></i></a>
+          <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>Studio</h3>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div>
+        <h3>Work</h3>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Insights</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="landing-footer-contact">
+          <li><i class="bi bi-telephone"></i><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li><i class="bi bi-envelope"></i><a href="mailto:hello@nexora.com">hello@nexora.com</a></li>
+          <li><i class="bi bi-geo-alt"></i><span>2464 Royal Lane, New York, NY 10001</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="landing-footer-bottom">
+      <span>Copyright 2026 Nexora. All rights reserved.</span>
+      <span>Architecture Studio Website</span>
+    </div>
+  </footer>
+
   <script>
     const siteHeader = document.querySelector(".site-header");
     const toggleHeaderBg = () => {
