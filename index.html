@@ -80,103 +80,174 @@
       left: clamp(16px, 4vw, 76px);
       right: clamp(16px, 4vw, 76px);
       z-index: 999;
-      min-height: 58px;
+      min-height: 76px;
       padding: 0;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, padding .25s ease;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 0;
+      background: rgba(3, 4, 8, .48);
+      backdrop-filter: blur(18px);
+      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
 
     .site-header.is-scrolled {
-      background: rgba(3, 4, 8, .82);
-      border-color: rgba(255, 255, 255, .16);
+      background: rgba(3, 4, 8, .86);
+      border-color: rgba(255, 255, 255, .2);
       box-shadow: 0 18px 60px rgba(0, 0, 0, .34);
-      backdrop-filter: blur(18px);
-      padding: 6px 14px;
     }
 
     .site-header .navbar {
-      min-height: 58px;
+      min-height: 76px;
     }
 
-    .landing-toggler {
+    .navbar-brand {
+      color: #fff !important;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .navbar-brand span {
+      color: #d5a15f;
+    }
+
+    .navbar-nav {
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, .86) !important;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link.show {
+      color: #fff !important;
+    }
+
+    .navbar-toggler {
       width: 46px;
       height: 46px;
       border: 1px solid rgba(255, 255, 255, .72);
-      border-radius: 999px;
+      border-radius: 50%;
       color: #fff;
       box-shadow: none !important;
     }
 
-    .landing-toggler i {
-      font-size: 22px;
-      line-height: 1;
+    .navbar-toggler-icon {
+      position: relative;
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 0 auto;
+      background: #fff;
+      background-image: none !important;
     }
 
-    .landing-nav {
-      gap: 24px;
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      content: "";
     }
 
-    @media (min-width: 992px) {
-      .site-header .navbar-collapse {
-        display: flex !important;
+    .navbar-toggler-icon::before {
+      top: -7px;
+    }
+
+    .navbar-toggler-icon::after {
+      top: 7px;
+    }
+
+    .dropdown-menu {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 0;
+      background: rgba(17, 18, 20, .96);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+      backdrop-filter: blur(18px);
+    }
+
+    @media (min-width: 1200px) {
+      .site-header .navbar-nav .dropdown:hover > .dropdown-menu,
+      .site-header .navbar-nav .dropdown:focus-within > .dropdown-menu,
+      .site-header .navbar-nav .dropdown-menu.show {
+        display: block;
+        margin-top: 0;
+        opacity: 1;
+        visibility: visible;
       }
     }
 
-    .landing-nav .nav-link {
-      color: rgba(255, 255, 255, .88);
+    .dropdown-item {
+      color: rgba(255, 255, 255, .82);
       font-weight: 700;
     }
 
-    .landing-nav .nav-link:hover,
-    .landing-nav .nav-link:focus {
+    .dropdown-item:hover,
+    .dropdown-item:focus {
       color: #fff;
+      background: rgba(213, 161, 95, .16);
     }
 
-    .brand {
-      width: max-content;
-      font-size: clamp(34px, 4vw, 52px);
+    .mega-menu {
+      width: min(760px, calc(100vw - 32px));
+      left: 50%;
+      padding: 18px;
+      transform: translateX(-50%);
+    }
+
+    .mega-link {
+      display: block;
+      min-height: 96px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      font-weight: 800;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+
+    .mega-link:hover,
+    .mega-link:focus {
+      border-color: rgba(213, 161, 95, .55);
+      background: rgba(213, 161, 95, .16);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .mega-link small {
+      display: block;
+      margin-bottom: 8px;
+      color: #d5a15f;
+      font-size: 12px;
       font-weight: 900;
-      line-height: 1;
-      letter-spacing: 0;
     }
 
-    .nav-links {
-      gap: clamp(28px, 4vw, 58px);
-      font-weight: 700;
-      color: rgba(255, 255, 255, .88);
+    .btn {
+      border-radius: 0;
+      font-weight: 900;
     }
 
-    .nav-links a {
-      transition: color .2s ease;
+    .btn-accent {
+      min-height: 48px;
+      padding: 12px 22px;
+      border-color: #d5a15f;
+      background: #d5a15f;
+      color: #171512 !important;
     }
 
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .purchase-small {
-      gap: 14px;
-      min-height: 56px;
-      padding: 8px 9px 8px 24px;
-      border: 1px solid rgba(255, 255, 255, .78);
-      border-radius: 999px;
-      color: #fff !important;
-      font-weight: 700;
-      background: rgba(255, 255, 255, .04);
-      backdrop-filter: blur(16px);
-    }
-
-    .round-icon {
-      display: inline-grid;
-      place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      color: #05060a;
+    .btn-accent:hover,
+    .btn-accent:focus {
+      border-color: #fff;
       background: #fff;
-      font-size: 21px;
-      line-height: 1;
+      color: #171512 !important;
     }
 
     .hero {
@@ -516,50 +587,74 @@
       font-weight: 800;
     }
 
+    @media (max-width: 1199.98px) {
+      .site-header {
+        top: 14px;
+        left: 16px;
+        right: 16px;
+      }
+
+      .site-header .navbar {
+        min-height: 68px;
+      }
+
+      .navbar > .container-fluid {
+        min-height: 68px;
+      }
+
+      .navbar-collapse {
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 0;
+        left: 0;
+        z-index: 30;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, .14);
+        background: rgba(3, 4, 8, .94);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, .36);
+        backdrop-filter: blur(18px);
+      }
+
+      .navbar-nav {
+        gap: 4px;
+      }
+
+      .dropdown-menu,
+      .mega-menu {
+        position: static !important;
+        width: 100% !important;
+        margin: 6px 0 10px;
+        transform: none !important;
+      }
+
+      .btn-accent {
+        width: 100%;
+        justify-content: center;
+        margin-top: 12px;
+      }
+    }
+
     @media (max-width: 720px) {
       .landing {
         padding: 14px 16px 0;
       }
 
       .site-header {
-        top: 14px;
-        left: 16px;
-        right: 16px;
-        gap: 12px;
-        border-radius: 26px;
+        min-height: 64px;
       }
 
-      .brand {
-        font-size: 36px;
+      .site-header .navbar,
+      .navbar > .container-fluid {
+        min-height: 64px;
       }
 
-      .landing-nav {
-        position: absolute;
-        top: 58px;
-        right: 0;
-        left: 0;
-        z-index: 30;
-        margin-top: 14px;
-        padding: 18px;
-        border: 1px solid rgba(255, 255, 255, .18);
-        border-radius: 22px;
-        background: rgba(0, 0, 0, .76);
-        backdrop-filter: blur(18px);
+      .navbar-brand {
+        font-size: 26px;
       }
 
-      .purchase-small {
-        min-height: 44px;
-        padding: 5px;
-      }
-
-      .purchase-small span:first-child {
-        display: none;
-      }
-
-      .round-icon {
-        width: 34px;
-        height: 34px;
-        font-size: 17px;
+      .navbar-toggler {
+        width: 42px;
+        height: 42px;
       }
 
       .hero {
@@ -678,26 +773,69 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-dark p-0">
-      <div class="container-fluid px-0">
-        <a class="brand navbar-brand mb-0" href="index-1.html" aria-label="Nexora home">Nexora</a>
-        <button class="navbar-toggler landing-toggler d-lg-none align-items-center justify-content-center" type="button"
-          data-bs-toggle="collapse" data-bs-target="#landingHeaderNav" aria-controls="landingHeaderNav"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <i class="bi bi-list"></i>
+  <header class="site-header" data-header>
+    <nav class="navbar navbar-expand-xl">
+      <div class="container-fluid px-lg-5">
+        <a class="navbar-brand" href="index-1.html"><span>Ne</span>xora</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse landing-nav" id="landingHeaderNav">
-          <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-5">
-            <li class="nav-item"><a class="nav-link" href="#demos">Demo Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">Inner Page</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Login</a></li>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown has-mega">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row g-3">
+                  <div class="col-sm-6 col-lg-4"><a class="mega-link" href="index-1.html"><small>Home 01</small>Modern
+                      Architecture Studio</a></div>
+                  <div class="col-sm-6 col-lg-4"><a class="mega-link" href="home-02.html"><small>Home 02</small>Luxury
+                      Interior Design</a></div>
+                  <div class="col-sm-6 col-lg-4"><a class="mega-link" href="home-03.html"><small>Home 03</small>Minimal
+                      Architect Projects</a></div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="about.html">About</a></li>
+                <li><a class="dropdown-item" href="about-1.html">About 1</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="services.html">Services</a></li>
+                <li><a class="dropdown-item" href="service-details.html">Service Details</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Projects</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="projects.html">Projects</a></li>
+                <li><a class="dropdown-item" href="project-details.html">Project Details</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="team.html">Team</a></li>
+                <li><a class="dropdown-item" href="team-details.html">Team Details</a></li>
+                <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blog</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                <li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           </ul>
-          <a class="purchase-small btn d-inline-flex align-items-center justify-content-center mt-3 mt-lg-0"
-            href="contact.html">
-            <span>PURCHASE NOW</span>
-            <span class="round-icon"><i class="bi bi-arrow-up-right"></i></span>
-          </a>
+          <a class="btn btn-accent d-none d-xl-inline-flex" href="contact.html">Start a Project</a>
         </div>
       </div>
     </nav>
